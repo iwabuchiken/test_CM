@@ -1,0 +1,134 @@
+a
+cd C:\WORKS\WORKSPACES_APTANA\test_CM
+C:\WORKS\PROGRAMS\FreeMind\Freemind.exe
+
+rails s --port 3000
+
+pushd C:\WORKS\WORKSPACES_APTANA\test_CM
+gitk
+
+C:\WORKS\PROGRAMS\FreeMind\Freemind.exe C:\WORKS\WORKSPACES_ANDROID\FM\NewsReader3_R\NewsReader3.mm
+
+
+[Git]
+git init
+g a .
+gitk
+
+git log --grep=master -6
+
+[Set up 2012052]----------------------------
+rails new NewsReader
+
+cd NewsReader
+
+copy C:\WORKS\WORKSPACES_APTANA\ChineseReader\.project .
+
+sakura .project
+
+### EDIT .project#name	###
+
+### IMPORT TO APTANA	###
+
+copy C:\WORKS\WORKSPACES_APTANA\CM\win_command_history.txt .
+
+copy C:\WORKS\WORKSPACES_APTANA\ChineseReader\Gemfile .
+
+bundle install
+
+rails s --port 3001
+
+[Git ]
+### CREATE REPO AT GitHub	###
+
+git init
+
+git add .
+
+git commit -a
+
+git remote add origin git@github.com:iwabuchiken/CM.git
+
+g p origin master
+
+### BROWSE GitHub	###
+
+[heroku ]
+
+# Successfully installed excon-0.14.3
+# Successfully installed heroku-api-0.2.7
+# Successfully installed heroku-2.28.10
+# 3 gems installed
+
+gem install heroku --no-ri --no-rdoc
+heroku keys:add
+heroku create --stack cedar
+heroku rename cosmos-cm
+
+g p heroku master
+
+heroku open
+
+/git remote rm heroku
+/gem uninstall heroku (2.28.10)
+
+/git remote add heroku git@heroku.com:cosmos-english-reader.git
+
+
+[/Set up ]----------------------------
+
+[Model: Article: 20120710_172354]-------------------------------
+rails generate scaffold Article line:text url:string src:string news_time:string genre:string cat:string subcat:string tag:string memo:text
+
+rails generate scaffold Music file_name:string file_path:string duration:integer date_added:integer date_modified:integer file_info:text memo_self:text located_at:string
+
+rails generate scaffold Memo text:text music_id:integer
+
+bundle exec rake db:migrate
+
+### Browse local ###
+
+g a .
+g c -a
+
+g p origin master
+
+g p heroku master
+
+heroku run rake db:migrate
+
+bundle update
+
+**next**
+
+
+
+=======================================================
+[Add column: Article 20120711_065652]-------------------------------
+# rails generate migration AddColumnCodesToArticle
+# 
+# bundle exec rake db:migrate
+# 
+# bundle exec rake db:rollback
+# 
+# rails destroy migration AddColumnCodesToArticle
+# 
+# rails generate migration AddColumnCodesToGenre
+
+# *push
+
+# heroku run rake db:migrate
+
+[20120711_080643]-------------------------------------
+# git remote rm heroku
+# gem uninstall heroku
+
+# gem install heroku --no-ri --no-rdoc
+# heroku keys:add
+# heroku create --stack cedar
+# heroku rename cosmos-news-reader-3
+# g p heroku master
+# heroku run rake db:migrate
+
+
+============EOF============
